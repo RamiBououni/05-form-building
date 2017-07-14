@@ -13,6 +13,7 @@
   <!-- NOTE (stretch goal): To fully incorporate the highlighting library "hljs" we need to fill the empty link tag below to refer to a CSS file that will handle our text highlighting -->
   <link>
   <!-- TODO: We want our new article form to be able to display a preview of the article that is being entered. Thus, we need code here that will recreate the same structure of our other articles. What do you think we need to add here? -->
+  <!-- DONE estimated time: 10min, actual time: 5min -->
   <script id="article-template" type="text/x-handlebars-template">
     <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
       <header>
@@ -57,6 +58,30 @@
                    4. Author's URL
                    5. Article category
                    6. Some way to know if this article is a draft or is published -->
+                   <!-- DONE estimated time: 15min, actual time: 10min -->
+     <form class="" action="index.html" method="post">
+       <fieldset>
+       <legend>My form:</legend>
+       <label for="">
+         title <input type="text" name="" value="">
+       </label>
+       <label for="">
+         Body <input type="text" name="" value="">
+       </label>
+       <label for="">
+         Author <input type="text" name="" value="">
+       </label>
+       <label for="">
+         Url <input type="text" name="" value="">
+       </label>
+       <label for="">
+         Category <input type="text" name="" value="">
+       </label>
+       <label for="">
+         Published <input type="checkbox" id="publishedArticle" name="" value="">
+       </label>
+     </fieldset>
+     </form>
     </section>
 
     <section id="articles" class="tab-content">
