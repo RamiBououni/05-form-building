@@ -90,14 +90,24 @@ articleView.initNewArticlePage = function() {
 };
 
 // this is the function that generates the preview and shows the export field
-articleView.create = function() {
+articleView.create = function(element) {
   // TODO: Set up a var to hold the new article we are creating.
   // Clear out the #articles element, so we can put in the updated preview
   // DONE estimated: 5min, actual: 2min
-  var newArticle = new Article();
-
+  var article;
+  $('#articles').empty();
   // TODO: Instantiate an article based on what's in the form fields:
+  // DONE estimate: 20min, actual: 10min
+  article = new Article({
+    author: element.author,
+    authorUrl: element.authorUrl,
+    title: element.title,
+    category: element.category,
+    body: element.body,
+    publishedOn: element.publishedOn
+  });
 
+  $('#articles').append(article.toHtml());
 
   // TODO: Use our interface to the Handblebars template to put the article preview into the DOM:
 
