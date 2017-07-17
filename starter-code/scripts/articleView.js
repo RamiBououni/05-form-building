@@ -85,10 +85,37 @@ articleView.initNewArticlePage = function() {
   });
 
   // TODO: Add an event handler to update the preview and the article-export field if any inputs change.
-//   $('.form').on('change', )
+  $('input').on('change', function(){
+    // $('#articles').append('<p>hello</p>');
+    var myTitle = $('.myTitle').val();
+    console.log(myTitle);
+    $('#articles').append(myTitle);
 
-// };
+    var myBody = $('.myBody').val();
+    $('#articles').append(myBody);
 
+    var myAuthor = $('.myAuthor').val();
+    $('#articles').append(myAuthor);
+
+    var myUrl = $('.myUrl').val();
+    $('#articles').append(myUrl);
+
+    var myCategory = $('.myCategory').val();
+    $('#articles').append(myCategory);
+
+
+    // var previewArticle = new Article(previewArticle);
+    // console.log(previewArticle);
+    // previewArticle.title = $('.myTitle').val();
+    // previewArticle.body = $('.myBody').val();
+    // previewArticle.author = $('.myAuthor').val();
+    // previewArticle.authorUrl = $('.myUrl').val();
+    // previewArticle.category = $('.myCategory').val();
+    // previewArticle.create();
+    // previewArticle.templateRender();
+
+  });
+}
 // this is the function that generates the preview and shows the export field
 articleView.create = function(element) {
   // TODO: Set up a var to hold the new article we are creating.
