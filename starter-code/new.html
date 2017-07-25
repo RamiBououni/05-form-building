@@ -11,14 +11,13 @@
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/modules.css">
   <!-- NOTE (stretch goal): To fully incorporate the highlighting library "hljs" we need to fill the empty link tag below to refer to a CSS file that will handle our text highlighting -->
-  <link>
+  <link rel="stylesheet" href="vendor/styles/railscasts.css">
   <!-- TODO: We want our new article form to be able to display a preview of the article that is being entered. Thus, we need code here that will recreate the same structure of our other articles. What do you think we need to add here? -->
   <!-- DONE estimated time: 10min, actual time: 5min -->
   <script id="article-template" type="text/x-handlebars-template">
     <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
       <header>
         <h1>{{title}}</h1>
-        <h1>{{category}}</h1>
         <div class="byline">
           By <address><a href="{{authorUrl}}">{{author}}</a></address>
           {{publishedOn}}
@@ -59,28 +58,24 @@
                    5. Article category
                    6. Some way to know if this article is a draft or is published -->
                    <!-- DONE estimated time: 15min, actual time: 10min -->
-     <form class="form" action="index.html" method="post">
-       <fieldset>
-       <legend>My form:</legend>
-       <label for="">
-         title <input type="text" name="" value="">
+     <form class="form" action="#" id="new-form">
+       <label>
+         <input type="text" id="article-title" placeholder="Article title" required>
        </label>
-       <label for="">
-         Body <input type="text" name="" value="">
+       <textarea id="article-body" rows="8" cols="40" required></textarea>
+       <label>
+         <input type="text" id="article-author" placeholder="Author Name" required>
        </label>
-       <label for="">
-         Author <input type="text" name="" value="">
+       <label>
+          <input type="text" id="article-author-url" placeholder="Author's URL" required>
        </label>
-       <label for="">
-         Url <input type="text" name="" value="">
+       <label>
+         <input type="text" id="article-category" placeholder="Category" required>
        </label>
-       <label for="">
-         Category <input type="text" name="" value="">
+       <label>
+         <input type="checkbox" id="article-published">
+         Published
        </label>
-       <label for="">
-         Published <input type="checkbox" id="publishedArticle" name="" value="">
-       </label>
-     </fieldset>
      </form>
     </section>
 
@@ -89,13 +84,12 @@
     </section>
 
     <section id="article-export">
+      <label id="article-field" for="article-json" class="">
+        <input type="text" readonly id="article-json">
+      </label>
       <!-- TODO: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
       <!-- DONE estimated: 10min, actual: 5min -->
-      <div id="previewJSON">
-
-      </div>
     </section>
-
   </main>
   <footer>
     &copy; 2017 Code Fellows | Static Blog | Happy Ipsum!
@@ -104,6 +98,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
   <!-- NOTE (stretch goal): Include script tags for 3rd party libraries to enable Markdown rendering and code syntax highlighting. If we are not using a CDN and instead choose to store these scripts with our project, make sure to put them into an appropriate location in the 'vendor' directory. Keep in mind that if we want these features to render properly on our main blog page (index.html) that we'll need to add those scripts over there, too. -->
+  <script src="vendor/scripts/marked.js"></script>
+  <script src="vendor/scripts/highlight.pack.js"></script>
   <script src="scripts/blogArticles.js"></script>
   <script src="scripts/article.js"></script>
   <script src="scripts/articleView.js"></script>
@@ -115,5 +111,4 @@
     articleView.initNewArticlePage();
   </script>
 </body>
-
 </html>
