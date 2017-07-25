@@ -17,16 +17,20 @@ Article.prototype.toHtml = function() {
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
 
+  this.body = marked(this.body);
+
   return template(this);
 };
 
-rawData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+if(typeof rawData !== 'undefined') {
+  rawData.sort(function(a,b) {
+    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  });
 
-rawData.forEach(function(articleObject) {
-  articles.push(new Article(articleObject));
-})
+  rawData.forEach(function(articleObject) {
+    articles.push(new Article(articleObject));
+  })
+}
 
 articles.forEach(function(article){
   $('#articles').append(article.toHtml())

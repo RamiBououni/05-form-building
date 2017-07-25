@@ -46,3 +46,27 @@ a:visited {
 /*FORM STYLES
 =======================================*/
 /*TODO: Add the CSS needed to style the form*/
+label {
+  font-size: 3em;
+}
+
+input {
+  width: 100%;
+  margin: .5em 0;
+  border: 1px solid #ccc;
+  border-width: 0 0 1px 0;
+  border-radius: 0; 
+}
+
+input[type="checkbox"] {
+  width: .28em;
+  height: .28em;
+  font-size: 3em;
+}
+
+textarea {
+  max-width: 100%;
+  margin: .5em 0;
+  font-size: 2em;
+  border: 1px solid black;
+}
